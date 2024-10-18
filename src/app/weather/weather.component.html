@@ -1,0 +1,17 @@
+<h1 class="title">Weather Sense</h1>
+<h2 class="subtitle">Your daily weather forecast</h2>
+<div class="weather-container">
+  <input [(ngModel)]="city" placeholder="Enter city name" class="input-city" />
+  <button (click)="getWeather()" class="btn-weather">Show Weather</button>
+</div>
+
+<div *ngIf="weatherData" class="weather-info">
+  <h2>Weather in {{ weatherData.location.name }}</h2>
+  <p>Temperature: {{ weatherData.current.temp_c }}°C</p>
+  <p>Condition: {{ weatherData.current.condition.text }}</p>
+  <img [src]="'https:' + weatherData.current.condition.icon" alt="Weather icon">
+  <p>Wind: {{ weatherData.current.wind_kph }} kph</p>
+  <p>Humidity: {{ weatherData.current.humidity }}%</p>
+  <p>Pressure: {{ weatherData.current.pressure_mb }} mb</p>
+  <p>Visibility: {{ weatherData.current.vis_km }} km</p>
+</div>
